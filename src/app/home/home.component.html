@@ -1,0 +1,29 @@
+  <div>
+      
+   
+  </div>
+
+  <div>
+    <div class="row" style="padding-top:20px">
+      <div class="col-xs-8">
+        <span style="font-size: 16px;font-weight: bold;">Select company to generate bill</span>
+        <br><br>
+          <div *ngFor="let item of companyData; let i = index" class="companySelection">
+            <div>{{i+1}}. <span class="company" (click)="createBill(item.code)">{{item.name}}</span></div>
+          </div>
+      </div>
+      <div class="col-xs-4">
+        <div>
+          <span>Upcoming Invoice :</span> <span style="font-weight:bold">{{upcomingInvoice}}</span> <span style="color:rgb(69, 69, 226);cursor:pointer" (click)="updateInvoice()">Update</span>
+        </div>
+        <br>
+        <div [hidden]="showInvoiceOption">Enter new Invoice number : <input type="number" [(ngModel)]="newinvoice" style="border: none;border-bottom: 1px solid black;"> <button type="button" class="btn btn-primary btn-xs" (click)="changeInvoice(newinvoice)">Change</button></div>
+        <br>
+        <div>
+          <span>Date&nbsp;:</span><span> {{date}}</span><br>
+          <span>Day&nbsp;&nbsp;:</span><span> {{day}}</span><br>
+          <span>Time&nbsp;:</span><span> {{time}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
